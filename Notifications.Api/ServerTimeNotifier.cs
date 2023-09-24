@@ -26,7 +26,9 @@ namespace Notifications.Api
 
                 _logger.LogInformation("Executing {Service} {Time}", nameof(ServerTimeNotifier), dateTime);
 
-                await _context.Clients.All.RecieveNotification($"Server time = {dateTime}");
+                await _context.Clients
+                    .User("55ab9c4f-51f0-4f05-909c-5889fc02e22c")
+                    .RecieveNotification($"Server time = {dateTime}");
             }
         }
     }
